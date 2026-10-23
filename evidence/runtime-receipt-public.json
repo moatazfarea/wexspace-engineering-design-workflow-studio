@@ -1,0 +1,346 @@
+{
+  "schema": "wexspace.engineering.real-http-qualification.v1",
+  "started_at": 1792772760.152912,
+  "evidence_class": "REAL_HTTP_ON_EXISTING_AWS_EC2",
+  "host_boot": "163143f7-6a70-4ba2-8986-72a7a18992f3",
+  "new_cloud_resources": 0,
+  "model_calls": 0,
+  "steps": [
+    {
+      "initialize": {
+        "capabilities": {
+          "prompts": {
+            "listChanged": false
+          },
+          "resources": {
+            "listChanged": false,
+            "subscribe": false
+          },
+          "tools": {
+            "listChanged": false
+          }
+        },
+        "instructions": "Inspect the room before editing. Respect its explicit constraints. Quantities are preliminary, not engineering sign-off. Never claim an order was placed.",
+        "protocolVersion": "2025-11-25",
+        "serverInfo": {
+          "name": "WEXSPACE Engineering Workshop",
+          "version": "0.3.0"
+        }
+      }
+    },
+    {
+      "tools": [
+        {
+          "name": "inspect_project",
+          "annotations": {
+            "destructiveHint": false,
+            "readOnlyHint": true
+          }
+        },
+        {
+          "name": "update_room",
+          "annotations": {
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "readOnlyHint": false
+          }
+        },
+        {
+          "name": "export_dossier",
+          "annotations": {
+            "destructiveHint": false,
+            "readOnlyHint": true
+          }
+        }
+      ]
+    },
+    {
+      "initial_read": {
+        "schema": "wexspace.engineering-workshop.v1",
+        "title": "Study room refurbishment",
+        "revision": 0,
+        "room": {
+          "length": 6,
+          "width": 4,
+          "height": 3,
+          "openings": 4.68,
+          "coats": 2,
+          "coverage": 10,
+          "waste": 10,
+          "includeCeiling": false,
+          "paintPack": 5,
+          "tileSide": 0.6,
+          "tilesPerBox": 4
+        },
+        "requirements": [
+          "Use metres and explain every quantity.",
+          "Exclude the ceiling. Do not buy or order anything."
+        ],
+        "quantities": {
+          "floor_m2": 24,
+          "gross_walls_m2": 60,
+          "openings_m2": 4.68,
+          "net_walls_m2": 55.32,
+          "ceiling_m2": 0,
+          "paint_area_m2": 55.32,
+          "paint_litres": 12.1704,
+          "paint_packs": 3,
+          "paint_pack_litres": 5,
+          "paint_purchase_litres": 15,
+          "tile_count": 74,
+          "tile_boxes": 19,
+          "tiles_per_box": 4,
+          "explanation": [
+            "Floor = 6 \u00d7 4 = 24 m\u00b2.",
+            "Net walls = 2 \u00d7 (6 + 4) \u00d7 3 \u2212 4.68 = 55.32 m\u00b2.",
+            "Paint = (55.32 + 0) \u00d7 2 coats \u00d7 1.1 \u00f7 10 m\u00b2/L = 12.1704 L.",
+            "Round UP to 3 packs \u00d7 5 L.",
+            "Tiles = ceil(24 \u00d7 1.1 \u00f7 0.6\u00b2) = 74; 19 boxes of 4."
+          ],
+          "assumptions": [
+            "User-entered rectangular room dimensions in metres.",
+            "Openings are deducted from walls; no deduction from floor.",
+            "Coverage, coats, waste and pack sizes are user assumptions, not manufacturer certification.",
+            "No structural, electrical, procurement or physical-work authorization."
+          ],
+          "status": "CALCULATED_FROM_ENTERED_ASSUMPTIONS",
+          "purchased": false
+        },
+        "audit": [],
+        "mode": "PRELIMINARY_QUANTITIES_NOT_ENGINEERING_SIGN_OFF"
+      }
+    },
+    {
+      "actual_mutation": {
+        "revision": 1,
+        "room": {
+          "length": 6,
+          "width": 4.5,
+          "height": 3,
+          "openings": 4.68,
+          "coats": 2,
+          "coverage": 10,
+          "waste": 10,
+          "includeCeiling": false,
+          "paintPack": 5,
+          "tileSide": 0.6,
+          "tilesPerBox": 4
+        },
+        "quantities": {
+          "floor_m2": 27,
+          "gross_walls_m2": 63,
+          "openings_m2": 4.68,
+          "net_walls_m2": 58.32,
+          "ceiling_m2": 0,
+          "paint_area_m2": 58.32,
+          "paint_litres": 12.8304,
+          "paint_packs": 3,
+          "paint_pack_litres": 5,
+          "paint_purchase_litres": 15,
+          "tile_count": 83,
+          "tile_boxes": 21,
+          "tiles_per_box": 4,
+          "explanation": [
+            "Floor = 6 \u00d7 4.5 = 27 m\u00b2.",
+            "Net walls = 2 \u00d7 (6 + 4.5) \u00d7 3 \u2212 4.68 = 58.32 m\u00b2.",
+            "Paint = (58.32 + 0) \u00d7 2 coats \u00d7 1.1 \u00f7 10 m\u00b2/L = 12.8304 L.",
+            "Round UP to 3 packs \u00d7 5 L.",
+            "Tiles = ceil(27 \u00d7 1.1 \u00f7 0.6\u00b2) = 83; 21 boxes of 4."
+          ],
+          "assumptions": [
+            "User-entered rectangular room dimensions in metres.",
+            "Openings are deducted from walls; no deduction from floor.",
+            "Coverage, coats, waste and pack sizes are user assumptions, not manufacturer certification.",
+            "No structural, electrical, procurement or physical-work authorization."
+          ],
+          "status": "CALCULATED_FROM_ENTERED_ASSUMPTIONS",
+          "purchased": false
+        },
+        "receipt": {
+          "operation_id": "aws-real-mcp-width-20261023",
+          "actor": "mcp",
+          "from_revision": 0,
+          "to_revision": 1,
+          "patch": {
+            "width": 4.5
+          },
+          "before_sha256": "b2554f9db1e9c5559cb4fe7e2cd9bb30d52fd71fa07e9c0c09f002d70fbc8cf1",
+          "after_sha256": "3cce7b659cda70fa0025b51786be38f73381edd4d10a716328ea321e75ec4a22",
+          "at": "2026-10-23T16:22:09.441Z",
+          "purchased": false
+        },
+        "cached": false
+      },
+      "independent_backend_readback": {
+        "schema": "wexspace.engineering-workshop.v1",
+        "title": "Study room refurbishment",
+        "revision": 1,
+        "room": {
+          "length": 6,
+          "width": 4.5,
+          "height": 3,
+          "openings": 4.68,
+          "coats": 2,
+          "coverage": 10,
+          "waste": 10,
+          "includeCeiling": false,
+          "paintPack": 5,
+          "tileSide": 0.6,
+          "tilesPerBox": 4
+        },
+        "requirements": [
+          "Use metres and explain every quantity.",
+          "Exclude the ceiling. Do not buy or order anything."
+        ],
+        "quantities": {
+          "floor_m2": 27,
+          "gross_walls_m2": 63,
+          "openings_m2": 4.68,
+          "net_walls_m2": 58.32,
+          "ceiling_m2": 0,
+          "paint_area_m2": 58.32,
+          "paint_litres": 12.8304,
+          "paint_packs": 3,
+          "paint_pack_litres": 5,
+          "paint_purchase_litres": 15,
+          "tile_count": 83,
+          "tile_boxes": 21,
+          "tiles_per_box": 4,
+          "explanation": [
+            "Floor = 6 \u00d7 4.5 = 27 m\u00b2.",
+            "Net walls = 2 \u00d7 (6 + 4.5) \u00d7 3 \u2212 4.68 = 58.32 m\u00b2.",
+            "Paint = (58.32 + 0) \u00d7 2 coats \u00d7 1.1 \u00f7 10 m\u00b2/L = 12.8304 L.",
+            "Round UP to 3 packs \u00d7 5 L.",
+            "Tiles = ceil(27 \u00d7 1.1 \u00f7 0.6\u00b2) = 83; 21 boxes of 4."
+          ],
+          "assumptions": [
+            "User-entered rectangular room dimensions in metres.",
+            "Openings are deducted from walls; no deduction from floor.",
+            "Coverage, coats, waste and pack sizes are user assumptions, not manufacturer certification.",
+            "No structural, electrical, procurement or physical-work authorization."
+          ],
+          "status": "CALCULATED_FROM_ENTERED_ASSUMPTIONS",
+          "purchased": false
+        },
+        "audit": [
+          {
+            "operation_id": "aws-real-mcp-width-20261023",
+            "actor": "mcp",
+            "from_revision": 0,
+            "to_revision": 1,
+            "patch": {
+              "width": 4.5
+            },
+            "before_sha256": "b2554f9db1e9c5559cb4fe7e2cd9bb30d52fd71fa07e9c0c09f002d70fbc8cf1",
+            "after_sha256": "3cce7b659cda70fa0025b51786be38f73381edd4d10a716328ea321e75ec4a22",
+            "at": "2026-10-23T16:22:09.441Z",
+            "purchased": false
+          }
+        ],
+        "mode": "PRELIMINARY_QUANTITIES_NOT_ENGINEERING_SIGN_OFF"
+      }
+    },
+    {
+      "same_operation_replay": {
+        "cached": true,
+        "revision": 1
+      }
+    },
+    {
+      "constraint_rejected": true,
+      "stale_revision_rejected": true,
+      "after_negative_checks": {
+        "schema": "wexspace.engineering-workshop.v1",
+        "title": "Study room refurbishment",
+        "revision": 1,
+        "room": {
+          "length": 6,
+          "width": 4.5,
+          "height": 3,
+          "openings": 4.68,
+          "coats": 2,
+          "coverage": 10,
+          "waste": 10,
+          "includeCeiling": false,
+          "paintPack": 5,
+          "tileSide": 0.6,
+          "tilesPerBox": 4
+        },
+        "requirements": [
+          "Use metres and explain every quantity.",
+          "Exclude the ceiling. Do not buy or order anything."
+        ],
+        "quantities": {
+          "floor_m2": 27,
+          "gross_walls_m2": 63,
+          "openings_m2": 4.68,
+          "net_walls_m2": 58.32,
+          "ceiling_m2": 0,
+          "paint_area_m2": 58.32,
+          "paint_litres": 12.8304,
+          "paint_packs": 3,
+          "paint_pack_litres": 5,
+          "paint_purchase_litres": 15,
+          "tile_count": 83,
+          "tile_boxes": 21,
+          "tiles_per_box": 4,
+          "explanation": [
+            "Floor = 6 \u00d7 4.5 = 27 m\u00b2.",
+            "Net walls = 2 \u00d7 (6 + 4.5) \u00d7 3 \u2212 4.68 = 58.32 m\u00b2.",
+            "Paint = (58.32 + 0) \u00d7 2 coats \u00d7 1.1 \u00f7 10 m\u00b2/L = 12.8304 L.",
+            "Round UP to 3 packs \u00d7 5 L.",
+            "Tiles = ceil(27 \u00d7 1.1 \u00f7 0.6\u00b2) = 83; 21 boxes of 4."
+          ],
+          "assumptions": [
+            "User-entered rectangular room dimensions in metres.",
+            "Openings are deducted from walls; no deduction from floor.",
+            "Coverage, coats, waste and pack sizes are user assumptions, not manufacturer certification.",
+            "No structural, electrical, procurement or physical-work authorization."
+          ],
+          "status": "CALCULATED_FROM_ENTERED_ASSUMPTIONS",
+          "purchased": false
+        },
+        "audit": [
+          {
+            "operation_id": "aws-real-mcp-width-20261023",
+            "actor": "mcp",
+            "from_revision": 0,
+            "to_revision": 1,
+            "patch": {
+              "width": 4.5
+            },
+            "before_sha256": "b2554f9db1e9c5559cb4fe7e2cd9bb30d52fd71fa07e9c0c09f002d70fbc8cf1",
+            "after_sha256": "3cce7b659cda70fa0025b51786be38f73381edd4d10a716328ea321e75ec4a22",
+            "at": "2026-10-23T16:22:09.441Z",
+            "purchased": false
+          }
+        ],
+        "mode": "PRELIMINARY_QUANTITIES_NOT_ENGINEERING_SIGN_OFF"
+      }
+    },
+    {
+      "export_sha256": "874888e68a6023ac03f6187edfd4e28c940aa45f493c1bf9283407773926da70"
+    },
+    {
+      "fresh_process_recovery": {
+        "revision": 1,
+        "width": 4.5,
+        "audit_entries": 1
+      },
+      "cached_replay_after_restart": true,
+      "typed_constraint_error": {
+        "content": [
+          {
+            "text": "Error executing tool update_room: REQUIREMENT_CONFLICT: The project requirement excludes the ceiling. Change the requirement deliberately before including it.",
+            "type": "text"
+          }
+        ],
+        "isError": true
+      }
+    }
+  ],
+  "predecessor_status": "FAILED_HARNESS_AFTER_SEVEN_SUCCESSFUL_RUNTIME_STEPS",
+  "predecessor_sha256": "a19e3d6537b89a886c976ae0a8866f1518f3231c355c9d7581f50ee68e592681",
+  "status": "PASS_SCOPED_REAL_HTTP_NOT_NATIVE_CHATGPT",
+  "finished_at": 1792772760.924174
+}

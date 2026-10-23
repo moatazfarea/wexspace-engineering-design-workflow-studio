@@ -1,0 +1,84 @@
+{
+  "schema": "wexspace.engineering-workshop.v1",
+  "title": "Study room refurbishment",
+  "revision": 2,
+  "room": {
+    "length": 6,
+    "width": 4.5,
+    "height": 3.2,
+    "openings": 4.68,
+    "coats": 2,
+    "coverage": 10,
+    "waste": 10,
+    "includeCeiling": false,
+    "paintPack": 5,
+    "tileSide": 0.6,
+    "tilesPerBox": 4
+  },
+  "requirements": [
+    "Use metres and explain every quantity.",
+    "Exclude the ceiling. Do not buy or order anything."
+  ],
+  "quantities": {
+    "floor_m2": 27,
+    "gross_walls_m2": 67.2,
+    "openings_m2": 4.68,
+    "net_walls_m2": 62.52,
+    "ceiling_m2": 0,
+    "paint_area_m2": 62.52,
+    "paint_litres": 13.7544,
+    "paint_packs": 3,
+    "paint_pack_litres": 5,
+    "paint_purchase_litres": 15,
+    "tile_count": 83,
+    "tile_boxes": 21,
+    "tiles_per_box": 4,
+    "explanation": [
+      "Floor = 6 × 4.5 = 27 m².",
+      "Net walls = 2 × (6 + 4.5) × 3.2 − 4.68 = 62.52 m².",
+      "Paint = (62.52 + 0) × 2 coats × 1.1 ÷ 10 m²/L = 13.7544 L.",
+      "Round UP to 3 packs × 5 L.",
+      "Tiles = ceil(27 × 1.1 ÷ 0.6²) = 83; 21 boxes of 4."
+    ],
+    "assumptions": [
+      "User-entered rectangular room dimensions in metres.",
+      "Openings are deducted from walls; no deduction from floor.",
+      "Coverage, coats, waste and pack sizes are user assumptions, not manufacturer certification.",
+      "No structural, electrical, procurement or physical-work authorization."
+    ],
+    "status": "CALCULATED_FROM_ENTERED_ASSUMPTIONS",
+    "purchased": false
+  },
+  "audit": [
+    {
+      "operation_id": "op-73c39c694c961ef42721de0129b0033d",
+      "actor": "simulator",
+      "from_revision": 0,
+      "to_revision": 1,
+      "patch": {
+        "width": 4.5,
+        "includeCeiling": false
+      },
+      "before_sha256": "b2554f9db1e9c5559cb4fe7e2cd9bb30d52fd71fa07e9c0c09f002d70fbc8cf1",
+      "after_sha256": "3cce7b659cda70fa0025b51786be38f73381edd4d10a716328ea321e75ec4a22",
+      "at": "2026-10-23T16:24:20.241Z",
+      "purchased": false
+    },
+    {
+      "operation_id": "op-251ab6650b50cda611d11c9bdd103776",
+      "actor": "human",
+      "from_revision": 1,
+      "to_revision": 2,
+      "patch": {
+        "height": 3.2
+      },
+      "before_sha256": "3cce7b659cda70fa0025b51786be38f73381edd4d10a716328ea321e75ec4a22",
+      "after_sha256": "4cbe27bc3c9b26be12f10f9ebbfb866c65303bae97374fac3aeeb1f91e5994dc",
+      "at": "2026-10-23T16:28:08.808Z",
+      "purchased": false
+    }
+  ],
+  "mode": "PRELIMINARY_QUANTITIES_NOT_ENGINEERING_SIGN_OFF",
+  "exported_at": "2026-10-23T16:28:26.277Z",
+  "physical_work_authorized": false
+}

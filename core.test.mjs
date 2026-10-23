@@ -1,0 +1,10 @@
+import test from 'node:test'; import assert from 'node:assert/strict'; import {buildDossier,example,lifecycle} from './core.mjs';
+test('generic project produces all eight lifecycle phases',()=>{const p=buildDossier(example);assert.equal(p.lifecycle.length,8);assert.equal(p.project.name,example.title);assert.equal(p.type,'PRELIMINARY_BUILD_WORKFLOW_ONLY')});
+test('BOM math is deterministic and explicitly unverified',()=>{const p=buildDossier(example);assert.equal(p.billOfMaterials.totalUserEnteredAmount,135);assert.equal(p.billOfMaterials.costsVerified,false)});
+test('no domain lock to nuclear or energy',()=>{const p=buildDossier({...example,title:'Robot-assisted warehouse sorter',sector:'Industrial automation'});assert.equal(p.project.sector,'Industrial automation')});
+test('gaps remain gaps',()=>{const p=buildDossier({...example,parts:[],constraints:''});assert(p.readiness.issues.length>=2);assert.equal(p.readiness.physicalBuildReady,false)});
+test('requires clear project brief',()=>assert.throws(()=>buildDossier({...example,objective:'short'})));
+test('disallows negative or NaN BOM cost',()=>assert.throws(()=>buildDossier({...example,parts:[{item:'bolt',qty:3,unitCost:-2}]})));
+test('user approves review, not physical manufacture',()=>{const p=buildDossier({...example,reviewApproved:true});assert.equal(p.review.reviewApproved,true);assert.equal(p.review.physicalBuildAuthorization,false)});
+test('bounded unsupported quantity rejects',()=>assert.throws(()=>buildDossier({...example,parts:[{item:'pin',qty:Infinity,unitCost:2}]})));
+test('all lifecycle stages are uniquely identified',()=>assert.equal(new Set(lifecycle.map(x=>x[0])).size,8));

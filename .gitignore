@@ -1,0 +1,7 @@
+node_modules/
+.private-demo/
+.venv/
+__pycache__/
+*.log
+*.pid
+.openai/*.local.*

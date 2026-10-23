@@ -1,0 +1,10 @@
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+const names=['index.html','app.mjs','engine.mjs','style.css'],assets={};
+for(const name of names)assets[name]={body:await readFile('dist/'+name,'utf8'),type:name.endsWith('.html')?'text/html; charset=utf-8':name.endsWith('.css')?'text/css; charset=utf-8':'text/javascript; charset=utf-8'};
+const engine=await readFile('dist/engine.mjs','utf8'),runtime=(await readFile('worker/runtime.mjs','utf8')).replace(/^import[^\n]+\n/,'');
+await mkdir('dist/server',{recursive:true});await mkdir('dist/.openai',{recursive:true});
+await writeFile('dist/server/index.js',engine+'\nconst ASSETS='+JSON.stringify(assets)+';\n'+runtime);
+await writeFile('dist/.openai/hosting.json',await readFile('.openai/hosting.json'));
+const source=await readFile('dist/server/index.js','utf8'),module=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
+if(typeof module.default?.fetch!=='function')throw Error('Worker export invalid');
+console.log(JSON.stringify({worker_valid:true,bytes:Buffer.byteLength(source),assets:names.length}));

@@ -1,0 +1,1 @@
+{"name":"wexspace-engineering-design-workflow-studio","version":"0.3.0","type":"module","private":false,"scripts":{"test":"node --test core.test.mjs tests/*.test.mjs","serve":"node server.mjs"},"engines":{"node":">=22"},"license":"MIT"}
