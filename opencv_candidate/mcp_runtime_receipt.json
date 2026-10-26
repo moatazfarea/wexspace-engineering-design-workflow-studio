@@ -1,0 +1,26 @@
+{
+  "classification": "REAL_CHATGPT_MCP_ACTIONS_SYNTHETIC_LOCAL_VISION_INPUT_NOT_OPENCV5_AWS",
+  "input_dimensions_m": {
+    "length": 6.04,
+    "width": 4.04
+  },
+  "calculated": {
+    "floor_m2": 24.4016,
+    "net_walls_m2": 55.8,
+    "paint_litres": 12.276,
+    "tile_count": 75
+  },
+  "revision": {
+    "patch": {
+      "width": 4.5
+    },
+    "floor_m2": 27.18,
+    "net_walls_m2": 58.56,
+    "paint_litres": 12.8832,
+    "tile_count": 84,
+    "operation_id": "compare-2da0df4035bcb9ff30cb3941"
+  },
+  "export_csv_returned": true,
+  "automated_agent_dispatch": false,
+  "human_scale_confirmation": false
+}
