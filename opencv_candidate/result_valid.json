@@ -1,0 +1,27 @@
+{
+  "decision": "CALL_ACTUAL_QUANTITY_TOOL",
+  "length_m": 6.04,
+  "width_m": 4.04,
+  "polygon_px": [
+    [
+      118,
+      118
+    ],
+    [
+      118,
+      522
+    ],
+    [
+      722,
+      522
+    ],
+    [
+      722,
+      118
+    ]
+  ],
+  "pixels_per_metre": 100,
+  "opencv_version": "4.13.0",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "note": "provisional; physical scale and contour require human review"
+}
