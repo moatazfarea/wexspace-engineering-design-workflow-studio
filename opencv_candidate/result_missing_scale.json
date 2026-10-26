@@ -1,0 +1,22 @@
+{
+  "decision": "REQUEST_SCALE",
+  "reason": "no_verified_metric_reference",
+  "polygon_px": [
+    [
+      118,
+      118
+    ],
+    [
+      118,
+      522
+    ],
+    [
+      722,
+      522
+    ],
+    [
+      722,
+      118
+    ]
+  ]
+}
